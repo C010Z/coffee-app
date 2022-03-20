@@ -26,6 +26,7 @@ const nAdd = ()=> {
    
 
   return (
+     
     <div className="container d-flex justify-content-center col-1 ">
         <div className=" col-1">
           <div className="row-1">
@@ -42,8 +43,10 @@ const nAdd = ()=> {
           </div>
         </div>
       </div>
-   
+    
+     
+
      );
   }
 
-export default ItemCount;
+export default ItemCount
