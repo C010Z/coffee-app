@@ -21,11 +21,9 @@ function ItemDetailContainer() {
   }, [])
   
   return (
-      
-      <>
-      <ItemDetail producto={producto} />  
-
-      </>
+     
+     <ItemDetail producto={producto} />
+     
   )
 }
 

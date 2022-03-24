@@ -39,8 +39,8 @@ function ItemListContainer() {
                 <ItemList prods={prods} />
 
             }
-            <ItemCount initial={1} stock={10} onAdd={onAdd} />
-            
+          {/*  <ItemCount initial={1} stock={10} onAdd={onAdd} />
+            */}
         </>
     )
 }

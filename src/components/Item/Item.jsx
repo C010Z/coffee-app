@@ -1,33 +1,39 @@
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import ItemCount from "../../Container/ItemCount"
+import '../Item/Item.css'
 
-function Item({ prod }) {
+const onAdd = (cant) => {
+    console.log(cant)
+}
+function Item({prod}) {
     return (
-       <Link to={`detalle/${prod.id}`}>
-        <div
-            //key={prod.id}
-            className="col-md-3"
-        >
 
-            <div className="card w-100 text-center p-4 mt-5">
-                <div className=" card-header -mb-0">
-                    {prod.title} - {prod.categoria}
-                </div>
-                <div className="card-body">
-                    <img src={prod.pictureUrl} alt="" className="w-50" />
-                    {prod.price}
-                </div>
-                <div className="card-footer">
-                   
+       
+        <Link to={`detalle/${prod.id}`}>
+            <div 
+                // key={prod.id}
+                className='product' 
+            >                       
+                <div className="card w-10 " >
+                    <div className="card-header">
+                    <h5>{prod.title}</h5></div>
+                    <div className="card-body">
+                    <p>{prod.categoria}  </p>
+                        <img src={prod.pictureUrl} alt='' className='w-50' />
+                     <p> $ {prod.price}  </p>                                                            
+                    </div>
+                    <div className="card-footer"> 
+                    <ItemCount initial={1} stock={10} onAdd={onAdd} />
+                    </div> 
                  
-                 {/* <button className="btn btn-outline-primary btn-block">
-                        Detalles
-    </button> */}
+                                       
+                        
+                                                                                    
+                    </div>
                 </div>
-            </div>
-        </div>
-        </Link>
+           
+            </Link>    
     )
 }
+
 export default Item

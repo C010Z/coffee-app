@@ -26,25 +26,19 @@ const nAdd = ()=> {
    
 
   return (
-     
-    <div className="container d-flex justify-content-center col-1 ">
-        <div className=" col-1">
-          <div className="row-1">
-            <div className="d-flex justify-content-center col-1">
-              <Button className="btn-sm btn-primary" onClick={handleDecrement}> {" - "}</Button>
-              <span className="mx-5">{count}</span>
-              <Button className="btn-sm btn-primary" onClick={handleIncrement}>{" + "}</Button>
-            </div>
-          </div>
-          <div className="row-1">
-          <div className="d-flex justify-content-center col-1">
-            <Button className="btn-sm btn-success" onClick={nAdd}>{" Agregar al carrito "}</Button>
-            </div>
-          </div>
+
+
+
+
+
+
+
+<div className="boton">
+            <Button className="botonDecrement " onClick={handleDecrement}> - </Button>
+            <label> { count } </label>
+            <Button className="botonIncrement" onClick={handleIncrement}> + </Button><br />
+            <Button className="botonCart" onClick={ nAdd }>Add </Button>
         </div>
-      </div>
-    
-     
 
      );
   }
