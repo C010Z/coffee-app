@@ -3,6 +3,7 @@ import { BrowserRouter,Routes,Route,Navigate } from "react-router-dom";
 import { lazy,Suspense } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./Container/ItemListContainer";
 import ItemDetailContainer from "./Container/ItemDetailContainer/ItemDetailContainer"

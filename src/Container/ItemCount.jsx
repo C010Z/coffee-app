@@ -1,8 +1,7 @@
 import { useState}   from "react"
 import { Button  } from "react-bootstrap";
+import CartWigdet from "../components/Widget/CartWigdet";
   
- 
-
 function ItemCount  ({ stock,initial, onAdd })   {
   const [count, setCount] = useState(initial);
 
@@ -13,7 +12,7 @@ function ItemCount  ({ stock,initial, onAdd })   {
   }
 
   const handleDecrement =()=>{ 
-    if(count>initial){
+    if(count>0){
         setCount(count-1)
     }
 }
@@ -26,20 +25,24 @@ const nAdd = ()=> {
    
 
   return (
-
-
-
-
-
-
-
+<>  
 <div className="boton">
             <Button className="botonDecrement " onClick={handleDecrement}> - </Button>
             <label> { count } </label>
             <Button className="botonIncrement" onClick={handleIncrement}> + </Button><br />
-            <Button className="botonCart" onClick={ nAdd }>Add </Button>
+         
         </div>
+{
+  count > 0 ? <Button className="boton-asignado" onClick={() => nAdd()}> Añadir al 
+      <CartWigdet/>
+   </Button>
+  :
+  <Button className="boton-asignado disabled" onClick={() => nAdd()}> 
+  <i className="cart icon"></i>
+  añadir al carrito </Button>
+}
 
+        </>
      );
   }
 

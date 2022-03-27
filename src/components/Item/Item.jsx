@@ -9,7 +9,7 @@ function Item({prod}) {
     return (
 
        
-        <Link to={`detalle/${prod.id}`}>
+        <Link to={`/detalle/${prod.id}`}>
             <div 
                 // key={prod.id}
                 className='product' 
@@ -23,7 +23,7 @@ function Item({prod}) {
                      <p> $ {prod.price}  </p>                                                            
                     </div>
                     <div className="card-footer"> 
-                    <ItemCount initial={1} stock={10} onAdd={onAdd} />
+                   {/*} <ItemCount initial={1} stock={10} onAdd={onAdd} />*/}
                     </div> 
                  
                                        
