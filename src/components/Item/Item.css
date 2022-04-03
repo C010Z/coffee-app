@@ -1,41 +1,7 @@
-.product
+.card:hover
 {
-box-shadow: 0 2px 10px;
-float: left;
-margin: 1px;
-padding: 1pt;
-
-background-color: rgb(206, 54, 54);
-width:150px ;
-align-content: center;
- 
-}
-
-.card-header
-{
-    border-radius: 90%;
-     background-color: rgba(184, 127, 113, 0.842);
-    margin: 0px;
-    width: 140px;
-    height: 60px ;
-    
-   
-}
-
-.card-body
-{
+    transform: scale(1.1);
+    cursor:pointer
      
-    border-radius: 98%;
-    border: 40% solid;
-    margin: 1px;
-    height: 150px;
 }
-
-.card-footer
-{
-    border-radius: 40%;
-    
-    border: 50% solid;
-}
-
-
+ 

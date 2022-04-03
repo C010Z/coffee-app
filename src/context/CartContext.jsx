@@ -1,36 +1,63 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 const CartContext = createContext([])
 
 export const useCartContext = () => useContext(CartContext)
 
 
-function CartContextProvider({ children }) {
+function CartContextProvider({ children,initial }) {
 
     const [cartList, setCartList] = useState([])
+    const [total,setTotal] = useState(0)
+    
 
 
-    const addToCart = (item, qty) => {
-        if (cartList.some(ele => ele.id === item.id)) {
+    const addToCart = (item) => {
+        const existeProd = cartList.find((exprod)=> exprod.id===item.id)
+if (existeProd){
+    existeProd.cantidad += item.cantidad
+    setCartList([...cartList])
+}
+else {
+    setCartList([...cartList,item])
+}
 
-            let index = cartList.findIndex(ele => ele.id === item.id)
-            let prod = cartList[index]
-            prod.qty = prod.qty + qty
 
-            const newCart = [...cartList]
-            newCart.splice(index, 1, prod)
-            setCartList([...newCart])
-            console.log(newCart)
-
-        } else {
-            let prod = { ...item, qty }
-            setCartList([...cartList, prod])
-        }
 
     }
 
+useEffect(() =>{
+    const getTotal = ()=>{
+        const res= cartList.reduce((prev,item) =>{
+            return prev +(item.price* item.cantidad)
+                   },0)
+                   setTotal(res)
+    }
+    getTotal()
+},[cartList])
+
     const vaciarCarrito = () => {
-        setCartList([])
+        Swal.fire({
+            title: 'Vaciar Carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Eliminado!',
+                'El carrito a sido vaciado',
+                'success'
+                
+              )
+              setCartList([])
+            }
+          })
+
+       
     }
 
 
@@ -54,9 +81,10 @@ function CartContextProvider({ children }) {
     return (
         <CartContext.Provider value={{
             cartList,
+            total,
             addToCart,
             vaciarCarrito,
-            remover
+            remover 
 
         }}>
             {children}

@@ -1,0 +1,11 @@
+.nav-cart span {
+position:absolute;
+top:-3px;
+right: 120px;
+background: crimson;
+font-size: 10px;
+color: white;
+padding: 3px 5px;
+border-radius: 50%;
+z-index: 2;
+}

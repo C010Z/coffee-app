@@ -15,21 +15,18 @@ function ItemListContainer() {
     useEffect(() => {
         if (id) {
             getFech// simulacion a un llamado a una api        
-            .then(resp => setProds(resp.filter(prod=> prod.categoria === id)))
-            .catch(err => console.log(err))
-            .finally(()=> setLoading(false))           
+                .then(resp => setProds(resp.filter(prod => prod.categoria === id)))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         } else {
             getFech// simulacion a un llamado a una api        
-            .then(resp => setProds(resp))
-            .catch(err => console.log(err))
-            .finally(()=> setLoading(false))            
+                .then(resp => setProds(resp))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         }
     }, [id])
 
-    const onAdd = (cant) => {
-        console.log(cant)
-    }
-
+ 
 
     return (
         <>
@@ -39,7 +36,7 @@ function ItemListContainer() {
                 <ItemList prods={prods} />
 
             }
-          {/*  <ItemCount initial={1} stock={10} onAdd={onAdd} />
+            {/*  <ItemCount initial={1} stock={10} onAdd={onAdd} />
             */}
         </>
     )
