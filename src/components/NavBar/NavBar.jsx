@@ -7,6 +7,8 @@ import CartWigdet from "../Widget/CartWigdet"
 
 const NavBar = () => {
 
+
+
     return (
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

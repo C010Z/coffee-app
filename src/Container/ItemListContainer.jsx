@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getFech } from "../Helpers/getFech";
-import ItemCount from "./ItemCount"
-import ItemList from "../components/ItemList/ItemList";
+import {collection,getDocs,getFirestore,query,where} from 'firebase/firestore'
+
+ import ItemList from "../components/ItemList/ItemList";
 import Loading from "../components/Loading/Loading";
 import { useParams } from "react-router-dom";
 
@@ -11,20 +11,36 @@ function ItemListContainer() {
     const [prods, setProds] = useState([])
 
     const { id } = useParams()
+   // traer productos filtrados por categorías
+   useEffect(()=> {
+    console.log(id)
+    const db = getFirestore()    
 
-    useEffect(() => {
-        if (id) {
-            getFech// simulacion a un llamado a una api        
-                .then(resp => setProds(resp.filter(prod => prod.categoria === id)))
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        } else {
-            getFech// simulacion a un llamado a una api        
-                .then(resp => setProds(resp))
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        }
-    }, [id])
+    const queryCollectionFinal =  !id 
+                        ? 
+                            collection(db, 'items' )
+                        :  
+                            query( collection(db, 'items' ), 
+                                where('categoria','==', id) 
+                                //orderBy("title", "desc")                                   
+                            )                             
+
+    getDocs(queryCollectionFinal)
+    .then(resp => setProds( resp.docs.map(producto =>( {id: producto.id, ...producto.data()}) ) ) )
+    .catch(err => console.log(err))
+    .finally(()=> setLoading(false))   
+    
+}, [id])   
+
+
+
+
+
+
+
+
+
+
 
  
 
@@ -36,8 +52,7 @@ function ItemListContainer() {
                 <ItemList prods={prods} />
 
             }
-            {/*  <ItemCount initial={1} stock={10} onAdd={onAdd} />
-            */}
+            
         </>
     )
 }
