@@ -1,8 +1,16 @@
 # Getting Started with Create React App
+Se realizo como proyecto final un e-comerce sobre productos de Barista ( Cafeteras y Granos de cafe) en este caso.
 
+Se utlilizo para estilos  react-boostrap
 
-#LINK 
+#DEMO 
 https://cheery-puppy-fc8c9d.netlify.app
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
