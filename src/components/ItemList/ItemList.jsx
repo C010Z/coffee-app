@@ -1,20 +1,14 @@
 import Item from '../Item/Item'
 
-
 function ItemList({ prods }) {
    return (
-      <> 
-       <section  section className='py-4 container'>
+      
+       <div    className='py-4 container'>
           <div className='row justify-content-center'>
-
-       
-          {prods.map((prod) => <Item key={prod.id} prod={prod} />)}   
-         
+                 {prods.map((prod) => <Item key={prod.id} prod={prod} />)}   
+         </div>
 </div>
-</section>
-          </>
-
- 
+           
  
    )}
    export default ItemList

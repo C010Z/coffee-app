@@ -2,7 +2,8 @@ import { useCartContext } from "../../context/CartContext"
 import { useState } from "react"
 import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import ItemCount from "../../Container/ItemCount"
+import ItemCount from "../ItemCount/ItemCount"
+ 
 
 function ItemDetail({ producto }) {
 
@@ -16,26 +17,22 @@ function ItemDetail({ producto }) {
   }
 
   return (
-    <center>
+    <div>  
+     <center >   
       <Card className="card-detalle" style={{ width: '20rem' }}>
-        <  Card.Title className="card-detalle-title">{producto.title}</Card.Title>
+        <Card.Title className="card-detalle-title">{producto.title}</Card.Title>
         <Card.Img variant="top" src={producto.pictureUrl} alt="IMAGEN NO DISPONIBLE" className="  w-5 mt-1" />
         <Card.Body className="card-detalle-body">
-
           <Card.Text className="card-detalle-text">
             <p> ${producto.price} </p>
             <p>{producto.description}</p>
-
-
           </Card.Text>
-
         </Card.Body>
         <Card.Footer>
           {isCant ?
             <>
               <Link to='/'>
                 <button className='btn btn-primary'>Seguir comprando</button>
-
               </Link>
               <Link to='/cart'>
                 <button className='btn btn-outline-success'>Ir a Cart</button>
@@ -43,16 +40,10 @@ function ItemDetail({ producto }) {
             </>
             :
             <ItemCount initial={1} stock={producto.stock} onAdd={onAdd} />}
-
-
         </Card.Footer>
       </Card>
-
-
-
-    </center>
+      </center>
+      </div>
   )
-
 }
-
 export default ItemDetail

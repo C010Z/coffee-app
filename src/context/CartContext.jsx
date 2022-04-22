@@ -2,17 +2,13 @@ import { createContext, useContext, useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const CartContext = createContext([])
-
 export const useCartContext = () => useContext(CartContext)
 
-
-function CartContextProvider({ children,initial }) {
+function CartContextProvider({ children }) {
 
     const [cartList, setCartList] = useState([])
     const [total,setTotal] = useState(0)
     
-
-
     const addToCart = (item) => {
         const existeProd = cartList.find((exprod)=> exprod.id===item.id)
 if (existeProd){
@@ -22,8 +18,6 @@ if (existeProd){
 else {
     setCartList([...cartList,item])
 }
-
-
 
     }
 
@@ -51,17 +45,18 @@ useEffect(() =>{
                 'Eliminado!',
                 'El carrito a sido vaciado',
                 'success'
-                
-              )
+                             )
               setCartList([])
             }
           })
-
        
     }
-
-
-    const remover = (id) => {
+    const limpiar = () => {
+         
+              setCartList([])
+            }
+            
+        const remover = (id) => {
         const aux = cartList.filter((cartList) => cartList.id !== id);
         setCartList(aux)
     }
@@ -77,19 +72,18 @@ useEffect(() =>{
     }, [cartList])
 
 
-
     return (
         <CartContext.Provider value={{
             cartList,
             total,
             addToCart,
             vaciarCarrito,
-            remover 
+            remover,
+            limpiar 
 
         }}>
             {children}
         </CartContext.Provider>
     )
-}
-
+    }
 export default CartContextProvider

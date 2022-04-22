@@ -1,7 +1,7 @@
  import { getDoc,doc, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react'
  import {useParams} from "react-router-dom"
-import Swal from 'sweetalert2';
+ 
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 //import Loading from '../../components/Loading/Loading';
 
@@ -12,11 +12,8 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail'
 function ItemDetailContainer() {
   const [producto, setProducto] = useState({})
   const [loading, setLoading] = useState(true)
-
   const { detalleId } = useParams() 
-  
-  
-
+   
 useEffect(() => {
   async function getById(){
     try {

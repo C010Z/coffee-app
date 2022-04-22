@@ -6,11 +6,7 @@ import '../NavBar/NavBar.css'
 import CartWigdet from "../Widget/CartWigdet"
 
 const NavBar = () => {
-
-
-
     return (
-
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <NavLink to='/'>CoffeeMarket</NavLink>
@@ -19,19 +15,16 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <NavLink to='categoria/Cafeteras'>Cafeteras</NavLink>
                         <NavLink to='categoria/Granos' >Granos</NavLink>
-
                     </Nav>
                     <Nav>
                         <div className="nav-cart">
                             <NavLink to='cart' className={({ isActive }) => isActive ? 'active' : ''} >
                                 <CartWigdet />
                             </NavLink>  </div>
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-
     )
 }
 

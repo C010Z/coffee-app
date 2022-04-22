@@ -1,15 +1,13 @@
-
 import { BrowserRouter,Routes,Route,Navigate } from "react-router-dom";
 import { lazy,Suspense } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import NavBar from "./components/NavBar/NavBar";
-//import ItemListContainer from "./Container/ItemListContainer";
 import ItemDetailContainer from "./Container/ItemDetailContainer/ItemDetailContainer"
 import Cart from "./components/Cart/Cart";
 import CartContextProvider from "./context/CartContext";
-
+import Compra from "./components/Compra/Compra";
+ 
 const ItemListContainer = lazy(()=> import('./Container/ItemListContainer'))
 
 function App() {
@@ -26,6 +24,8 @@ function App() {
     
       <Route path='/cart' element={<Cart />}/>
       <Route path='/*' element={<Navigate to='/' />} />
+      <Route path='/compra' element={<Compra />}/>
+    
       </Routes>
     </div>
     </CartContextProvider>

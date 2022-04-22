@@ -8,9 +8,9 @@ function Cart() {
  
   return (
     <div>
-      {cartList.length === 0 ? <CartVacio />
+      {
+      cartList.length === 0 ? <CartVacio />
         : <CartBoddy/>  
-          
   }
    
     </div>

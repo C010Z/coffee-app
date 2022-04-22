@@ -7,7 +7,6 @@ const productos = [
 {id:'6' ,title:"Cafetera Italiana",categoria: 'Cafeteras',description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry."  , price: 9000 , pictureUrl: "/images/CafeteraItaliana2.jpg",stock: 7} 
  
 ]
-
  export const getFech = new Promise((resolve,reject)=>{
     let condicion = true
     if (condicion)
